@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getJobs } from "../../service/job.service";
 import Spinner from "../../components/Spinner";
+import { getTimeDifference } from "../../utils";
 
 export default function Home() {
   const [jobs, setJobs] = useState([]);
@@ -78,6 +79,10 @@ export default function Home() {
                 className="bg-white border rounded p-4 shadow hover:shadow-md"
               >
                 <h3 className="text-xl font-semibold">{job.title}</h3>
+                <p className="text-xs text-gray-500 mb-1">
+                  Posted{" "}
+                  {getTimeDifference(job.createdAt)}
+                </p>
                 <p className="text-gray-600">{job.company}</p>
                 <p className="text-sm text-gray-500">
                   {job.location} • {job.type}
