@@ -10,16 +10,14 @@ export default function Home() {
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Debounce logic
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedSearch(search);
-    }, 500); // delay 500ms
+    }, 500);
 
-    return () => clearTimeout(handler); // cleanup
+    return () => clearTimeout(handler); 
   }, [search]);
 
-  // Fetch when debouncedSearch updates
   useEffect(() => {
     fetchJobs();
   }, [debouncedSearch]);

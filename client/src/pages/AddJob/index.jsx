@@ -24,10 +24,10 @@ export default function AddJob() {
   });
 
   const onSubmit = async (data) => {
-    await addJob(data).then(res => {
-        if (res.success) {
-            navigate("/");
-        }
+    addJob(data).then((res) => {
+      if (res.success) {
+        navigate("/");
+      }
     });
   };
 
